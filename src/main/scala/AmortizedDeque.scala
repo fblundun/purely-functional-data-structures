@@ -1,3 +1,10 @@
+object AmortizedDeque {
+  def apply[A](elts: A*): AmortizedDeque[A] = elts.toList match {
+    case Nil => AmortizedDeque(Nil, Nil)
+    case h :: t => AmortizedDeque(List(h), t)
+  }
+}
+
 case class AmortizedDeque[A](front: List[A], rear: List[A]) {
   def head(): A = front match {
     case h :: t => h
