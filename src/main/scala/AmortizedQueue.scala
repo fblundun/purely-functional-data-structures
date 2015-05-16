@@ -1,3 +1,7 @@
+object AmortizedQueue {
+  def apply[A](elts: A*): AmortizedQueue[A] = AmortizedQueue(elts.toList, Nil)
+}
+
 case class AmortizedQueue[+A](front: List[A], rear: List[A]) {
 
   def head(): A = front.head
